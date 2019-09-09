@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
   album.songs.forEach((song, index) => {
     song.element = $(`
       <tr>
@@ -14,12 +14,11 @@ $(document).ready(function(){
       </tr>
     `);
 
-
     song.element.click(event => {
       player.playPause(song);
-      $('button#play-pause').attr('playState', player.playState);
+      $("button#play-pause").attr("playState", player.playState);
     });
 
-    $('#song-list').append(song.element);
+    $("#song-list").append(song.element);
   });
 });
