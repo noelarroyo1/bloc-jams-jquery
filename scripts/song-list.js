@@ -1,6 +1,8 @@
 $(document).ready(function() {
   album.songs.forEach((song, index) => {
-    song.element = $(`
+    const betterTime = player.prettyTime(song.duration);
+    song.element = $(
+      `
       <tr>
         <td>
           <button>
@@ -10,9 +12,12 @@ $(document).ready(function() {
           </button>
         </td>
         <td>${song.title}</td>
-        <td>${song.duration}</td>
+        <td>` +
+        betterTime +
+        `</td>
       </tr>
-    `);
+    `
+    );
 
     song.element.click(event => {
       player.playPause(song);
